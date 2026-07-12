@@ -1,0 +1,151 @@
+aid: fern-api
+url: https://raw.githubusercontent.com/api-evangelist/fern-api/refs/heads/main/apis.yml
+name: Fern
+kind: company
+description: >-
+  Fern is a developer-tools platform that turns a single API specification into
+  idiomatic client SDKs, beautiful API documentation, and MCP servers. Given
+  OpenAPI, AsyncAPI, gRPC/Protobuf, or Fern's own Fern Definition as input, Fern
+  generates type-safe SDKs in TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift,
+  and Rust, publishes them to registries like npm, PyPI, and Maven, and builds a
+  hosted docs site with an interactive API reference, API playground, and an
+  AI-powered "Ask Fern" search. The primary interface is the open-source `fern`
+  CLI (Apache-2.0, github.com/fern-api/fern) driving a hosted platform - the
+  fern-api catalog documents Fern's SDK-generation, documentation-generation, and
+  Fern Definition capability surfaces as capability areas, plus the one hosted
+  public REST API Fern exposes to customers, the Ask Fern API. Fern is
+  open-core: the CLI and generators are open source, and Docs and SDKs are sold
+  on Hobby (free), Team, and Enterprise plans.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- API Lifecycle
+- SDK Generation
+- Client Library
+- API Documentation
+- Developer Tools
+- OpenAPI
+- CLI
+- Open Source
+- Developer Experience
+created: '2026-07-11'
+modified: '2026-07-11'
+specificationVersion: '0.19'
+apis:
+- aid: fern-api:fern-api-sdk-generation
+  name: Fern SDK Generation
+  tags:
+  - SDK Generation
+  - Client Library
+  - Developer Tools
+  - API Lifecycle
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://buildwithfern.com/learn/sdks/overview
+  properties:
+  - url: https://buildwithfern.com/learn/sdks/overview
+    type: Documentation
+  - url: https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands
+    type: APIReference
+  - url: https://github.com/fern-api/fern
+    type: SourceCode
+  description: >-
+    Capability area (CLI/platform, not a hosted REST API) that generates
+    idiomatic, type-safe client SDKs in TypeScript, Python, Go, Java, C#, PHP,
+    Ruby, Swift, and Rust from OpenAPI, AsyncAPI, gRPC, or Fern Definition input.
+    Driven by `fern generate`; SDKs are published to GitHub and registries (npm,
+    PyPI, Maven). Endpoints are modeled from the CLI surface rather than a public
+    REST API.
+- aid: fern-api:fern-api-documentation
+  name: Fern API Documentation
+  tags:
+  - API Documentation
+  - Developer Portal
+  - Docs as Code
+  - Developer Experience
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://buildwithfern.com/learn/docs/getting-started/overview
+  properties:
+  - url: https://buildwithfern.com/learn/docs/getting-started/overview
+    type: Documentation
+  - url: https://buildwithfern.com/learn/docs/api-references/generate-api-ref
+    type: APIReference
+  - url: https://github.com/fern-api/fern
+    type: SourceCode
+  description: >-
+    Capability area (CLI/platform) that builds a hosted documentation website
+    with a generated API reference, interactive API playground, changelogs,
+    versioning, keyword search, and docs-as-code (Markdown + git) authoring.
+    Driven by `fern generate --docs` and `fern docs dev`. Endpoints are modeled
+    from the CLI and platform surface rather than a public REST API.
+- aid: fern-api:fern-api-definition-cli
+  name: Fern Definition and CLI
+  tags:
+  - CLI
+  - API Design
+  - API Lifecycle
+  - Developer Tools
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands
+  properties:
+  - url: https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands
+    type: Documentation
+  - url: https://buildwithfern.com/learn/api-definitions/openapi/authentication
+    type: APIReference
+  - url: https://github.com/fern-api/fern
+    type: SourceCode
+  description: >-
+    Capability area covering Fern's open-source (Apache-2.0) command-line
+    interface and the proprietary Fern Definition API-description format. Core
+    commands include `fern init`, `fern check`, `fern generate`, `fern login`,
+    `fern token`, `fern export`, and `fern docs dev`. Endpoints are modeled from
+    the CLI surface, not a hosted REST API.
+- aid: fern-api:fern-api-ask-fern-api
+  name: Ask Fern API
+  tags:
+  - AI
+  - Search
+  - REST API
+  - Developer Tools
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
+  baseURL: https://fai.buildwithfern.com
+  properties:
+  - url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
+    type: Documentation
+  - url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/website/get-website-status
+    type: APIReference
+  - url: openapi/fern-api-openapi.yml
+    type: OpenAPI
+  - url: collections/fern-api.postman_collection.json
+    type: PostmanCollection
+  - url: collections/fern-api.opencollection.json
+    type: OpenCollection
+  description: >-
+    Fern's hosted public REST API for the AI-powered "Ask Fern" documentation
+    search. Index a documentation website, poll indexing job status, and query
+    the indexed content for grounded, hallucination-resistant answers to build
+    your own support integrations. Authenticated with a Bearer token from
+    `fern token`; available on Team and Enterprise plans. The website
+    index/status endpoints are grounded in the published reference; the /ask
+    query shape is modeled.
+common:
+- type: Authentication
+  url: authentication/fern-api-authentication.yml
+- type: GitHubOrganization
+  url: https://github.com/fern-api
+- type: LinkedIn
+  url: https://www.linkedin.com/company/buildwithfern
+- type: Website
+  url: https://buildwithfern.com
+- type: Documentation
+  url: https://buildwithfern.com/learn/home
+- type: Plans
+  url: plans/fern-api-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/fern-api-rate-limits.yml
+- type: FinOps
+  url: finops/fern-api-finops.yml
+- url: https://buildwithfern.com/blog
+  type: Blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Fern
+providerId: fern-api
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- SDK Generation
+- API Documentation
+- Developer Tools
+- Rate Limiting
+- Quotas
+description: >-
+  Fern does not publish fixed numeric HTTP rate limits for its hosted Ask Fern
+  REST API. Practical usage is governed by plan-based AI credits rather than a
+  per-minute request cap - the Hobby tier includes 250 AI credits per month and
+  the Team tier 1,000, with Enterprise negotiated. SDK generation and docs
+  generation run through the open-source `fern` CLI, so their throughput is
+  bounded by your own CI/CD and local compute rather than by a Fern-imposed
+  limit. Publishing generated SDKs is ultimately subject to the rate limits of
+  the downstream registries (npm, PyPI, Maven) and of GitHub.
+notes: >-
+  Numeric per-endpoint request limits for the Ask Fern API are not documented as
+  of the review date; the effective constraint is the monthly AI-credit
+  allowance of your plan. Verify current allowances on the Fern pricing page and
+  handle 429 responses with exponential backoff.
+sources:
+- https://buildwithfern.com/pricing
+- https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
+- https://github.com/fern-api/fern
+responseCodes:
+  throttled: 429
+limits:
+- name: Ask Fern API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit is documented for the hosted Ask Fern REST API.
+- name: AI Credits
+  scope: account
+  metric: credits
+  limit: per plan (Hobby 250/mo, Team 1000/mo, Enterprise custom)
+  notes: AI-powered features (Ask Fern) consume monthly AI credits that vary by plan tier.
+- name: CLI Generation Throughput
+  scope: deployment
+  metric: runs
+  limit: compute-bound
+  notes: SDK and docs generation run via the open-source CLI, bounded by your own CI/local compute.
+- name: SDK Publishing
+  scope: registry
+  metric: publishes
+  limit: downstream
+  notes: Publishing generated SDKs is subject to npm, PyPI, Maven, and GitHub rate limits, not Fern's.
+policies:
+- name: Credit-Based Metering
+  description: AI documentation features are metered by monthly AI credits per plan rather than by request-rate caps.
+- name: Backoff Strategy
+  description: Clients of the Ask Fern API should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

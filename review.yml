@@ -1,0 +1,96 @@
+aid: fern-api
+name: Fern
+review:
+  question: Does Fern expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored for Fern's own API. Fern supports AsyncAPI
+    (WebSockets) as an INPUT format - it can generate SDKs and documentation for
+    a customer's WebSocket API - but that is a capability Fern provides for other
+    people's APIs, not a WebSocket transport on Fern's own hosted surface. Fern's
+    own hosted public API (the Ask Fern API at https://fai.buildwithfern.com) is
+    request/response REST over HTTPS with Bearer auth; there is no server-push
+    (WebSocket or SSE) endpoint on Fern's own API to model.
+findings:
+  summary: |
+    Fern does not publish a documented public WebSocket API of its own. Fern is a
+    developer-tools platform that generates client SDKs, API documentation, and
+    MCP servers from an API specification (OpenAPI, AsyncAPI, gRPC/Protobuf, or
+    Fern Definition). The primary interface is the open-source `fern` CLI
+    (Apache-2.0, github.com/fern-api/fern) driving a hosted dashboard - not a
+    public REST or WebSocket API. Fern does expose one hosted public REST API to
+    customers: the Ask Fern API (base https://fai.buildwithfern.com), used to
+    index a docs website, poll indexing status, and query indexed content for
+    AI-grounded answers; it is authenticated with a Bearer token from the
+    `fern token` CLI command and is available on Team and Enterprise plans. All
+    of this is request/response REST. Fern's support for AsyncAPI/WebSockets is
+    an input format it consumes to generate SDKs/docs for other APIs, not a
+    WebSocket endpoint on Fern's own API.
+  openSource: |
+    Fern's core is open source under Apache-2.0 (github.com/fern-api/fern): the
+    `fern` CLI and the SDK/docs code generators. The hosted Docs and SDK product
+    (managed publishing, AI features, self-hosting) is commercial, sold on Hobby
+    (free), Team, and Enterprise plans. SDK generation supports TypeScript,
+    Python, Go, Java, C#, PHP, Ruby, Swift, and Rust, with publishing to npm,
+    PyPI, and Maven.
+  transports:
+    - protocol: CLI
+      scheme: n/a
+      documented: true
+      note: Primary interface. `fern init`, `fern check`, `fern generate`, `fern generate --docs`, `fern docs dev`, `fern login`, `fern token`, `fern export`.
+    - protocol: REST
+      scheme: https
+      baseURL: https://fai.buildwithfern.com
+      documented: true
+      note: Ask Fern API - index a docs website, poll status, and query for AI answers. Bearer auth via `fern token`. Team/Enterprise plans.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented on Fern's own hosted API. AsyncAPI/WebSocket support is an input format Fern consumes to generate SDKs/docs for other APIs.
+  endpointsModeled:
+    - POST https://fai.buildwithfern.com/sources/website/{domain}/index
+    - GET  https://fai.buildwithfern.com/sources/website/{domain}/status?job_id={job_id}
+    - GET  https://fai.buildwithfern.com/ask?q={question}
+  endpointsConfirmedRest:
+    - GET  https://fai.buildwithfern.com/sources/website/{domain}/status
+  capabilityAreas:
+    - name: SDK Generation
+      note: Generates idiomatic SDKs in 9 languages from OpenAPI/AsyncAPI/gRPC/Fern Definition via `fern generate`. CLI/platform surface, not a hosted REST API.
+    - name: API Documentation Generation
+      note: Builds a hosted docs site with API reference, playground, changelogs, versioning, and AI search via `fern generate --docs` and `fern docs dev`. CLI/platform surface.
+    - name: Fern Definition and CLI
+      note: Open-source (Apache-2.0) CLI and the Fern Definition API-description format. CLI surface, not a hosted REST API.
+    - name: Ask Fern API
+      note: The one hosted public REST API Fern exposes to customers. Grounded status endpoint; index/ask endpoints modeled.
+sources:
+  - url: https://buildwithfern.com/
+    type: Website
+    note: Fern generates SDKs, docs, and CLIs from an API spec. 200+ customers.
+  - url: https://github.com/fern-api/fern
+    type: SourceCode
+    note: Open-source (Apache-2.0) CLI and generators. Inputs OpenAPI, output SDKs and docs.
+  - url: https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands
+    type: Documentation
+    note: fern CLI command reference (init, check, generate, login, token, export, docs dev).
+  - url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
+    type: APIReference
+    note: Ask Fern hosted REST API overview. Bearer auth via fern token. Team/Enterprise.
+  - url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/website/get-website-status
+    type: APIReference
+    note: Confirmed GET /sources/website/{domain}/status on base https://fai.buildwithfern.com.
+  - url: https://buildwithfern.com/pricing
+    type: Pricing
+    note: Hobby (free), Team ($150/mo billed yearly), Enterprise (custom). AI credits per tier.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists on Fern's own API. Fern's hosted public
+    API is the request/response REST Ask Fern API, and the rest of Fern is
+    delivered through the open-source `fern` CLI and hosted dashboard. Fern's
+    AsyncAPI/WebSocket capability is an input format it consumes to generate
+    artifacts for other APIs, so there is no server-push transport on Fern's own
+    API to model with an AsyncAPI document.

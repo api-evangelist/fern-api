@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Fern
+providerId: fern-api
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- SDK Generation
+- API Documentation
+- Developer Tools
+- Open Source
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Fern spend. Fern is open-core: the `fern` CLI and code
+  generators are open source (Apache-2.0), so running SDK and docs generation
+  in your own CI/CD carries only your compute cost with no vendor invoice. The
+  hosted Docs and SDK product is a SaaS subscription billed per plan - Hobby
+  (free), Team (flat monthly, billed yearly), and Enterprise (custom) - with the
+  AI documentation features (Ask Fern) metered against a monthly AI-credit
+  allowance included in each plan. The dominant Fern-invoiced cost is the
+  subscription tier plus any Enterprise add-ons (self-hosting, SSO, support).
+notes: >-
+  Team subscription advertised at $150/month billed yearly; Enterprise is
+  custom. AI credits (250/mo Hobby, 1000/mo Team) are included allowances, not
+  separately metered overages in public docs. Verify current pricing and
+  allowances on the Fern pricing page during reconciliation.
+sources:
+- https://buildwithfern.com/pricing
+- https://buildwithfern.com/
+- https://github.com/fern-api/fern
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Fern
+serviceCategory: Developer Tools
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Yearly
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+focusColumns:
+  ServiceName: Fern
+  ServiceCategory: Developer Tools
+  ProviderName: Fern
+  PublisherName: Fern
+  InvoiceIssuerName: Fern
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: subscription_seats
+  description: Team member seats included in the plan tier (Hobby 2, Team 5, Enterprise custom).
+  unit: seats
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: ai_credits
+  description: Monthly AI credits consumed by Ask Fern and AI documentation features.
+  unit: credits
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+- name: cli_compute
+  description: Infrastructure cost of running the open-source Fern CLI generators in CI/local (no Fern invoice).
+  unit: hours
+  aggregation: sum
+  dimensions:
+  - deployment
+principles:
+- name: Visibility
+  description: Track subscription tier, seat usage, and monthly AI-credit consumption per Fern organization.
+- name: Allocation
+  description: Map Fern seats and docs/SDK projects to the product or team that owns them.
+- name: Optimization
+  description: Run SDK and docs generation on the open-source CLI to avoid paid overages; right-size the plan tier to actual seats and AI-credit usage; reserve Enterprise add-ons (self-hosting, SSO) for teams that need them.
+- name: Accountability
+  description: Assign an owner for the Fern subscription; review seat and AI-credit usage against the plan allowance each cycle.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

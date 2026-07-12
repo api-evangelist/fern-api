@@ -1,0 +1,162 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Fern
+providerId: fern-api
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: false
+tags:
+- SDK Generation
+- API Documentation
+- Developer Tools
+- Open Source
+- Plans
+description: >-
+  Fern is open-core. The `fern` CLI and generators are open source
+  (Apache-2.0) and free to run, and the hosted Docs and SDK product is sold on
+  three tiers - Hobby, Team, and Enterprise - covering both API Docs and SDKs.
+  The Hobby tier is free forever for individuals; the Team tier is a flat monthly
+  fee (billed yearly); Enterprise is custom-priced. Plan differences are driven
+  by team seats, monthly AI credits (for the Ask Fern / AI docs features),
+  authentication and access-control options, and self-hosting. The hosted Ask
+  Fern REST API is available on the Team and Enterprise plans.
+notes: >-
+  Team price shown as $150/month billed yearly (advertised "save 25%"). Verify
+  current tiers, prices, seat counts, and AI-credit allowances on the Fern
+  pricing page during reconciliation. SDK-generation SDKs and generators run via
+  the open-source CLI at no license cost; paid tiers add hosted publishing,
+  managed docs, AI features, and support.
+sources:
+- https://buildwithfern.com/pricing
+- https://buildwithfern.com/
+- https://github.com/fern-api/fern
+plans:
+- id: fern-open-source-cli
+  name: Open Source CLI and Generators
+  type: free
+  description: >-
+    The `fern` CLI and code generators are open source under Apache-2.0 and free
+    to run locally or in CI. Convert OpenAPI/AsyncAPI/gRPC/Fern Definition into
+    SDKs and preview docs without a paid plan.
+  entries:
+  - label: CLI and Generator Usage
+    name: cli_usage
+    type: usage
+    metric: runs
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free (open source, Apache-2.0)
+    userMultiplied: false
+  elements:
+  - name: Fern CLI
+  - name: SDK Generators
+  - name: Fern Definition
+  - name: Local Docs Preview
+- id: fern-hobby
+  name: Hobby
+  type: free
+  description: >-
+    Free-forever hosted tier for individuals. Includes guides, API references,
+    changelogs, the API explorer, and the web editor with a custom domain.
+  entries:
+  - label: Team Members
+    name: hobby_seats
+    type: unit
+    metric: seats
+    limit: 2
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  - label: AI Credits
+    name: hobby_ai_credits
+    type: usage
+    metric: credits
+    limit: 250
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Custom Domain
+  - name: API References
+  - name: Changelogs
+  - name: API Explorer
+  - name: Web Editor
+- id: fern-team
+  name: Team
+  type: paid
+  description: >-
+    Paid tier for small teams. Everything in Hobby plus more seats and AI
+    credits, custom subpath, version and product switching, password-protected
+    docs, PDF exports, and access to the hosted Ask Fern REST API.
+  entries:
+  - label: Subscription
+    name: team_subscription
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $150/month (billed yearly)
+    userMultiplied: false
+  - label: Team Members
+    name: team_seats
+    type: unit
+    metric: seats
+    limit: 5
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  - label: AI Credits
+    name: team_ai_credits
+    type: usage
+    metric: credits
+    limit: 1000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: included
+    userMultiplied: false
+  elements:
+  - name: Custom Subpath
+  - name: Version and Product Switching
+  - name: Password-Protected Docs
+  - name: PDF Exports
+  - name: Ask Fern API Access
+- id: fern-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom-priced tier for scaling teams and enterprises. Everything in Team plus
+    visitor authentication (JWT/SSO), role-based access control, translated
+    content, self-hosting, enterprise SSO, and a dedicated support channel.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Visitor Authentication (JWT/SSO)
+  - name: Role-Based Access Control
+  - name: Translated Content
+  - name: Self-Hosting
+  - name: Enterprise SSO
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

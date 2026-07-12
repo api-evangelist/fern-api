@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fern Ask Fern API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Website Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Index a documentation website", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://fai.buildwithfern.com/sources/website/:domain/index",
+            "params": [
+              { "name": "domain", "value": "docs.example.com", "type": "path", "description": "The documentation domain to index." }
+            ],
+            "body": { "type": "json", "data": "{\"base_url\": \"https://docs.example.com\"}" }
+          },
+          "docs": "Start an indexing job that crawls and indexes a documentation website. Returns a job_id. Modeled endpoint - reconcile against the live reference."
+        },
+        {
+          "info": { "name": "Get website indexing status", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://fai.buildwithfern.com/sources/website/:domain/status",
+            "params": [
+              { "name": "domain", "value": "docs.example.com", "type": "path", "description": "The documentation domain being indexed." },
+              { "name": "job_id", "value": "", "type": "query", "description": "The job ID returned from the index endpoint." }
+            ]
+          },
+          "docs": "Return the status of a website indexing job, including pages_indexed and pages_failed. Confirmed endpoint."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ask",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": { "name": "Ask a question", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://fai.buildwithfern.com/ask",
+            "params": [
+              { "name": "q", "value": "", "type": "query", "description": "URI-encoded natural-language question." }
+            ]
+          },
+          "docs": "Submit a natural-language question and receive an AI-generated answer grounded in the indexed documentation. Modeled endpoint shape - reconcile against the live reference."
+        }
+      ]
+    }
+  ]
+}
