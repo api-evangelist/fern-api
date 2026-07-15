@@ -128,6 +128,8 @@ apis:
     index/status endpoints are grounded in the published reference; the /ask
     query shape is modeled.
 common:
+- type: AgenticAccess
+  url: agentic-access/fern-api-agentic-access.yml
 - type: Authentication
   url: authentication/fern-api-authentication.yml
 - type: GitHubOrganization
