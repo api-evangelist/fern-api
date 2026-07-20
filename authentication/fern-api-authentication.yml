@@ -10,7 +10,7 @@ schemes:
   scheme: bearer
   description: >-
     Bearer token generated with the `fern token` CLI command and passed as
-    `Authorization: Bearer YOUR_API_TOKEN`. The token is scoped to your Fern
+    `Authorization: Bearer [example key]`. The token is scoped to your Fern
     organization and does not expire. Used for the hosted Ask Fern REST API and
     to authenticate the `fern` CLI in CI/CD. The Ask Fern API is available on the
     Team and Enterprise plans.
