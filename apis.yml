@@ -16,7 +16,20 @@ description: >-
   public REST API Fern exposes to customers, the Ask Fern API. Fern is
   open-core: the CLI and generators are open source, and Docs and SDKs are sold
   on Hobby (free), Team, and Enterprise plans.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fern-api.png
 tags:
 - API Lifecycle
 - SDK Generation
@@ -48,12 +61,10 @@ apis:
   - url: https://github.com/fern-api/fern
     type: SourceCode
   description: >-
-    Capability area (CLI/platform, not a hosted REST API) that generates
-    idiomatic, type-safe client SDKs in TypeScript, Python, Go, Java, C#, PHP,
-    Ruby, Swift, and Rust from OpenAPI, AsyncAPI, gRPC, or Fern Definition input.
-    Driven by `fern generate`; SDKs are published to GitHub and registries (npm,
-    PyPI, Maven). Endpoints are modeled from the CLI surface rather than a public
-    REST API.
+    Capability area (CLI/platform, not a hosted REST API) that generates idiomatic, type-safe client SDKs
+    in TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift, and Rust from OpenAPI, AsyncAPI, gRPC, or Fern
+    Definition input. Driven by `fern generate`; SDKs are published to GitHub and registries (npm, PyPI,
+    Maven). Endpoints are modeled from the CLI surface rather than a public REST API.
 - aid: fern-api:fern-api-documentation
   name: Fern API Documentation
   tags:
@@ -71,11 +82,10 @@ apis:
   - url: https://github.com/fern-api/fern
     type: SourceCode
   description: >-
-    Capability area (CLI/platform) that builds a hosted documentation website
-    with a generated API reference, interactive API playground, changelogs,
-    versioning, keyword search, and docs-as-code (Markdown + git) authoring.
-    Driven by `fern generate --docs` and `fern docs dev`. Endpoints are modeled
-    from the CLI and platform surface rather than a public REST API.
+    Capability area (CLI/platform) that builds a hosted documentation website with a generated API reference,
+    interactive API playground, changelogs, versioning, keyword search, and docs-as-code (Markdown + git)
+    authoring. Driven by `fern generate --docs` and `fern docs dev`. Endpoints are modeled from the CLI
+    and platform surface rather than a public REST API.
 - aid: fern-api:fern-api-definition-cli
   name: Fern Definition and CLI
   tags:
@@ -93,40 +103,48 @@ apis:
   - url: https://github.com/fern-api/fern
     type: SourceCode
   description: >-
-    Capability area covering Fern's open-source (Apache-2.0) command-line
-    interface and the proprietary Fern Definition API-description format. Core
-    commands include `fern init`, `fern check`, `fern generate`, `fern login`,
-    `fern token`, `fern export`, and `fern docs dev`. Endpoints are modeled from
-    the CLI surface, not a hosted REST API.
-- aid: fern-api:fern-api-ask-fern-api
-  name: Ask Fern API
-  tags:
-  - AI
-  - Search
-  - REST API
-  - Developer Tools
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
+    Capability area covering Fern's open-source (Apache-2.0) command-line interface and the proprietary
+    Fern Definition API-description format. Core commands include `fern init`, `fern check`, `fern generate`,
+    `fern login`, `fern token`, `fern export`, and `fern docs dev`. Endpoints are modeled from the CLI
+    surface, not a hosted REST API.
+- aid: fern-api:fern-api-ask-api
+  name: Fern Ask API
+  description: Query indexed documentation for AI-generated, grounded answers.
+  humanURL: https://buildwithfern.com/learn/sdks/overview
   baseURL: https://fai.buildwithfern.com
+  tags:
+  - Ask
   properties:
-  - url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
-    type: Documentation
-  - url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/website/get-website-status
-    type: APIReference
-  - url: openapi/fern-api-openapi.yml
-    type: OpenAPI
-  - url: collections/fern-api.postman_collection.json
-    type: PostmanCollection
-  - url: collections/fern-api.opencollection.json
-    type: OpenCollection
-  description: >-
-    Fern's hosted public REST API for the AI-powered "Ask Fern" documentation
-    search. Index a documentation website, poll indexing job status, and query
-    the indexed content for grounded, hallucination-resistant answers to build
-    your own support integrations. Authenticated with a Bearer token from
-    `fern token`; available on Team and Enterprise plans. The website
-    index/status endpoints are grounded in the published reference; the /ask
-    query shape is modeled.
+  - type: OpenAPI
+    url: openapi/fern-api-ask-api-openapi.yml
+  - type: Documentation
+    url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
+  - type: APIReference
+    url: >-
+      https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/website/get-website-status
+  - type: PostmanCollection
+    url: collections/fern-api.postman_collection.json
+  - type: OpenCollection
+    url: collections/fern-api.opencollection.json
+- aid: fern-api:fern-api-website-sources-api
+  name: Fern Website Sources API
+  description: Index documentation websites and check indexing job status.
+  humanURL: https://buildwithfern.com/learn/sdks/overview
+  baseURL: https://fai.buildwithfern.com
+  tags:
+  - Website Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/fern-api-website-sources-api-openapi.yml
+  - type: Documentation
+    url: https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview
+  - type: APIReference
+    url: >-
+      https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/website/get-website-status
+  - type: PostmanCollection
+    url: collections/fern-api.postman_collection.json
+  - type: OpenCollection
+    url: collections/fern-api.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/fern-api-agentic-access.yml
