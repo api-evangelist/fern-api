@@ -1,0 +1,16 @@
+{
+  "provider": "fern-api",
+  "sources": [
+    "fern-api-ask-api-openapi.yml",
+    "fern-api-website-sources-api-openapi.yml"
+  ],
+  "outputs": [
+    "fern-api-ask-api-openapi.yml",
+    "fern-api-website-sources-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
