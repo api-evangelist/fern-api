@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fern Fern Ask Website Sources API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Website Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Index a documentation website",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fai.buildwithfern.com/sources/website/:domain/index",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path",
+                "description": "The documentation domain to index (for example, docs.example.com)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start an indexing job that crawls and indexes the pages of a documentation website so its content can be queried through Ask Fern. Returns a job_id used to poll indexing status. (Path and body modeled from the documented feature; reconcile against the live reference.)"
+        },
+        {
+          "info": {
+            "name": "Get website indexing status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fai.buildwithfern.com/sources/website/:domain/status",
+            "params": [
+              {
+                "name": "domain",
+                "value": "",
+                "type": "path",
+                "description": "The documentation domain being indexed."
+              },
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "query",
+                "description": "The job ID returned from the index endpoint."
+              }
+            ]
+          },
+          "docs": "Return the status of a website indexing job, including how many pages were indexed or failed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,179 @@
+{
+  "item": [
+    {
+      "id": "598e0786-e446-4d39-90d1-b601fa231ce8",
+      "name": "Ask",
+      "description": {
+        "content": "Query indexed documentation for AI-generated, grounded answers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c94cefe-e274-4990-a433-7bd647225943",
+          "name": "Ask a question against indexed documentation",
+          "request": {
+            "name": "Ask a question against indexed documentation",
+            "description": {
+              "content": "Submit a natural-language question and receive an AI-generated answer grounded in the indexed documentation. (Query-parameter shape modeled from the documented Ask Fern feature; reconcile against the live reference. Some deployments expose the ask endpoint under https://buildwithfern.com/learn/api/fern-docs/ask.)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ask"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) URI-encoded natural-language question."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa86d949-beaf-4e4e-ac79-589ec0d799bf",
+              "name": "A grounded answer with source references.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"answer\": \"string\",\n  \"sources\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ca60208-99e6-44d3-aa00-c1478fc6fee0",
+              "name": "Missing or invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ask"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fai.buildwithfern.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "db1f4d9b-d79f-4c01-83e9-90e4f819428e",
+    "name": "Fern Fern Ask API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ask Fern API is Fern's hosted, public REST surface for the \"Ask Fern\" AI documentation-search feature. It lets you index a documentation website and then query it programmatically, so you can build your own support integrations on top of Fern's AI-powered, docs-grounded answers. This is the primary documented hosted REST API that Fern exposes to customers; the rest of the Fern platform (SDK generation, docs generation, API-reference builds) is driven through the open-source `fern` CLI and the Fern dashboard rather than a public REST API. Requests are authenticated with a Bearer token generated by the `fern token` CLI command; the Ask Fern API is available on the Team and Enterprise plans. The website index/status endpoints are grounded in Fern's published API reference; the /ask query endpoint shape is modeled from the documented feature and should be reconciled against the live reference. Not all fields are exhaustively documented here.\n\nContact Support:\n Name: Fern",
+      "type": "text/plain"
+    }
+  }
+}

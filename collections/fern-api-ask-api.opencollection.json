@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fern Fern Ask API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ask",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ask a question against indexed documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fai.buildwithfern.com/ask",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "URI-encoded natural-language question."
+              }
+            ]
+          },
+          "docs": "Submit a natural-language question and receive an AI-generated answer grounded in the indexed documentation. (Query-parameter shape modeled from the documented Ask Fern feature; reconcile against the live reference. Some deployments expose the ask endpoint under https://buildwithfern.com/learn/api/fern-docs/ask.)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

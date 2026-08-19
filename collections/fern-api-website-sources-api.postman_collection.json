@@ -1,0 +1,395 @@
+{
+  "item": [
+    {
+      "id": "9c098caa-4597-458d-bcc8-3791d16d9b56",
+      "name": "Website Sources",
+      "description": {
+        "content": "Index documentation websites and check indexing job status.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9a18dfdc-098d-4f47-bab3-479cc5cca048",
+          "name": "Index a documentation website",
+          "request": {
+            "name": "Index a documentation website",
+            "description": {
+              "content": "Start an indexing job that crawls and indexes the pages of a documentation website so its content can be queried through Ask Fern. Returns a job_id used to poll indexing status. (Path and body modeled from the documented feature; reconcile against the live reference.)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources",
+                "website",
+                ":domain",
+                "index"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domain",
+                  "description": "(Required) The documentation domain to index (for example, docs.example.com)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"base_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b899a324-c4b2-4de6-9919-469e9dc34782",
+              "name": "Indexing job accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "website",
+                    ":domain",
+                    "index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain",
+                      "description": "(Required) The documentation domain to index (for example, docs.example.com)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0d7f6b6c-c536-44cd-9200-895c7eef31ca",
+              "name": "Missing or invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "website",
+                    ":domain",
+                    "index"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain",
+                      "description": "(Required) The documentation domain to index (for example, docs.example.com)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"base_url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0251a70-d335-4f76-9ab9-2b948b6b60be",
+          "name": "Get website indexing status",
+          "request": {
+            "name": "Get website indexing status",
+            "description": {
+              "content": "Return the status of a website indexing job, including how many pages were indexed or failed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources",
+                "website",
+                ":domain",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "job_id",
+                  "value": "<string>",
+                  "description": "(Required) The job ID returned from the index endpoint."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domain",
+                  "description": "(Required) The documentation domain being indexed."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca65e067-28e6-4c8e-b8ac-e164411290bd",
+              "name": "Indexing job status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "website",
+                    ":domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "job_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain",
+                      "description": "(Required) The documentation domain being indexed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"string\",\n  \"status\": \"COMPLETED\",\n  \"base_url\": \"string\",\n  \"pages_indexed\": 953,\n  \"pages_failed\": 2163,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "316eb58f-37e6-44c8-8e0b-0e0dbca054ad",
+              "name": "Missing or invalid API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "website",
+                    ":domain",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "job_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain",
+                      "description": "(Required) The documentation domain being indexed."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fai.buildwithfern.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a8c5e09b-fc31-47bb-aacc-eca3f29a6e13",
+    "name": "Fern Fern Ask Website Sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Ask Fern API is Fern's hosted, public REST surface for the \"Ask Fern\" AI documentation-search feature. It lets you index a documentation website and then query it programmatically, so you can build your own support integrations on top of Fern's AI-powered, docs-grounded answers. This is the primary documented hosted REST API that Fern exposes to customers; the rest of the Fern platform (SDK generation, docs generation, API-reference builds) is driven through the open-source `fern` CLI and the Fern dashboard rather than a public REST API. Requests are authenticated with a Bearer token generated by the `fern token` CLI command; the Ask Fern API is available on the Team and Enterprise plans. The website index/status endpoints are grounded in Fern's published API reference; the /ask query endpoint shape is modeled from the documented feature and should be reconciled against the live reference. Not all fields are exhaustively documented here.\n\nContact Support:\n Name: Fern",
+      "type": "text/plain"
+    }
+  }
+}
