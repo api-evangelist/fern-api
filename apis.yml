@@ -16,6 +16,19 @@ description: >-
   public REST API Fern exposes to customers, the Ask Fern API. Fern is
   open-core: the CLI and generators are open source, and Docs and SDKs are sold
   on Hobby (free), Team, and Enterprise plans.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
