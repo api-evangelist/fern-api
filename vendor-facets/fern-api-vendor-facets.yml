@@ -1,0 +1,507 @@
+# Vendor facets — Fern. Two products: Fern Docs (hosted docs with llms.txt, Markdown, an
+# RFC 9727 api-catalog, a served OpenAPI 3.1, provider-authored skills and an Ask-Fern MCP
+# server) and Fern SDK generation (nine languages, plus an early-access CLI generator). It is the
+# widest reach in this set: SDKs and a CLI move Developer Ergonomics points no docs-only platform
+# can touch, and `fern api enrich` can write examples into the contract itself.
+vendor: fern-api
+name: Fern
+website: https://buildwithfern.com
+areas:
+- documentation
+- sdk-generation
+registry_keys:
+- fern
+rubric_schema_version: 0.22.0
+generated: '2026-09-25'
+features_refreshed: '2026-09-25'
+basis: measured
+summary: >-
+  Fern reaches further than any documentation-only vendor: generated SDKs published to the provider's
+  own registries earn sdk_count_1 and sdk_count_3, the CLI generator earns cli_present, and `fern api
+  enrich` merges AI-generated examples into the OpenAPI, the one route here into contract-side examples.
+  The docs side adds llms.txt, an RFC 9727 api-catalog, a served OpenAPI 3.1 and a place to publish skills
+  the provider writes. The qualifiers: the docs MCP server is one Ask-Fern template graded `platform`,
+  SDKs and the CLI count only once published and declared, the CLI generator is early access, and the
+  served contract only adds a contract for a provider whose source is not already OpenAPI.
+features:
+- id: sdk-generator
+  name: SDK generation in nine languages
+  description: >-
+    Generates TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift and Rust SDKs from OpenAPI or a Fern
+    definition, and publishes them to npm, PyPI, Maven Central, NuGet and others.
+  source: https://buildwithfern.com/learn/sdks/overview/capabilities
+  tier: unknown
+- id: sdk-idempotency
+  name: SDK idempotency headers, retries and pagination
+  description: >-
+    Generated SDKs carry idempotency headers, retries with backoff, auto-pagination, OAuth token refresh
+    and webhook signature verification.
+  source: https://buildwithfern.com/learn/sdks/overview/capabilities
+  tier: unknown
+- id: cli-generator
+  name: CLI generator
+  description: >-
+    Generates a single-binary CLI from an OpenAPI or GraphQL definition and publishes it to npm, Homebrew
+    and GitHub Releases.
+  source: https://buildwithfern.com/learn/cli-generator/get-started/overview
+  tier: unknown
+- id: hosted-docs
+  name: Fern Docs hosted site and API reference
+  description: A hosted docs site with guides and a generated API reference on the provider's domain.
+  source: https://buildwithfern.com/learn/docs/getting-started/capabilities
+  tier: unknown
+- id: api-explorer
+  name: API Explorer
+  description: >-
+    Authenticated real calls from the reference, prefilled from spec defaults, across all declared auth
+    schemes.
+  source: https://buildwithfern.com/learn/docs/api-references/api-explorer
+  tier: unknown
+- id: sdk-snippets
+  name: SDK and HTTP snippets in the reference
+  description: SDK and HTTP code examples generated from the request/response examples in the definition.
+  source: https://buildwithfern.com/learn/docs/llms.txt
+  tier: unknown
+- id: ai-examples
+  name: AI-generated examples and `fern api enrich`
+  description: >-
+    Generates realistic request/response examples for every endpoint; `fern api enrich` merges them into
+    native OpenAPI example fields.
+  source: https://buildwithfern.com/learn/docs/ai-features/ai-examples
+  tier: unknown
+- id: llms-txt
+  name: Generated llms.txt at every level
+  description: Maintains llms.txt at the root and per section, linking the served OpenAPI and AsyncAPI
+    specs.
+  source: https://buildwithfern.com/learn/docs/ai-features/llms-txt
+  tier: unknown
+- id: api-catalog
+  name: RFC 9727 api-catalog
+  description: >-
+    Serves /.well-known/api-catalog generated from the visible API reference, advertised in a Link header;
+    empty for authenticated sites.
+  source: https://buildwithfern.com/learn/docs/ai-features/api-catalog
+  tier: unknown
+- id: served-openapi
+  name: Served OpenAPI 3.1 (and AsyncAPI 2.6)
+  description: >-
+    Every docs site serves /openapi.json and /openapi.yaml generated from the same definition as the docs,
+    including webhooks and security schemes.
+  source: https://buildwithfern.com/learn/docs/developer-tools/openapi-spec
+  tier: unknown
+- id: custom-skills
+  name: Provider-authored Agent Skills hosting
+  description: >-
+    Serves skills the provider places under fern/.well-known/agent-skills/ with a v0.2.0 index and an
+    Install skills button.
+  source: https://buildwithfern.com/learn/docs/ai-features/host-skills
+  tier: unknown
+- id: docs-mcp
+  name: MCP server for the docs site
+  description: >-
+    A Fern-hosted MCP server at <docs>/_mcp/server with one Ask-Fern question-answering tool, on sites
+    with Ask Fern enabled.
+  source: https://buildwithfern.com/learn/docs/ai-features/mcp-server
+  tier: unknown
+- id: changelog
+  name: Changelog pages with RSS
+  description: A changelog folder renders dated, tag-filterable entries with an RSS feed.
+  source: https://buildwithfern.com/learn/docs/configuration/changelogs
+  tier: unknown
+- id: postman-generator
+  name: Fern-to-Postman generator (deprecated)
+  description: >-
+    The Postman collection generator is no longer maintained; Fern points users to Postman's OpenAPI import.
+  source: https://buildwithfern.com/learn/docs/integrations/postman
+  tier: unknown
+- id: markdown-access
+  name: Markdown pages and agent directives
+  description: >-
+    Every page as Markdown at <url>.md, with a configurable directive prepended to pages served to agents.
+  source: https://buildwithfern.com/learn/llms.txt
+  tier: unknown
+maps:
+- feature: sdk-generator
+  check: sdk_count_1
+  layer: composite
+  provider_must: >-
+    Publish at least one generated SDK to a public registry under its own name and declare it as an SDK
+    pointer.
+  catalog_pass_rate: 0.148
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.413
+  cohort_pct: 61.9
+  control_pct: 41.2
+  delta_pp: 20.7
+- feature: sdk-generator
+  check: sdk_count_3
+  layer: composite
+  provider_must: Publish three or more SDKs and declare each as an SDK pointer.
+  catalog_pass_rate: 0.018
+  facet: developer_ergonomics
+  points: 4
+  baseline_pass_rate: 0.043
+  cohort_pct: 0.0
+  control_pct: 4.3
+  delta_pp: -4.3
+- feature: cli-generator
+  check: cli_present
+  layer: composite
+  provider_must: Get into the early-access programme, publish the CLI, and declare it as a CLI pointer.
+  catalog_pass_rate: 0.063
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.19
+  cohort_pct: 23.8
+  control_pct: 19.0
+  delta_pp: 4.8
+- feature: ai-examples
+  check: examples_present
+  layer: composite
+  provider_must: >-
+    Run `fern api enrich` and publish the enriched OpenAPI as its contract; examples shown only in the
+    docs do not count.
+  note: >-
+    The examples are model-generated from the definition, not captured from real traffic; the check does
+    not distinguish, and this file says so.
+  catalog_pass_rate: 0.024
+  facet: contract_quality
+  points: 4
+  baseline_pass_rate: 0.233
+  cohort_pct: 6.8
+  control_pct: 23.4
+  delta_pp: -16.6
+- feature: ai-examples
+  check: openapi_examples
+  layer: agent_readiness
+  grade: verified
+  provider_must: Publish the enriched contract; without it Fern reaches only the documented link tier.
+  note: >-
+    Enrichment covers every endpoint, so the share clears the verified tier; same model-generated caveat.
+  points: 7
+  baseline_pass_rate: 0.36
+  cohort_pct: 16.7
+  control_pct: 36.1
+  delta_pp: -19.4
+- feature: api-explorer
+  check: console_or_sandbox
+  layer: composite
+  provider_must: Declare the explorer as a Console pointer.
+  catalog_pass_rate: 0.089
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.332
+  cohort_pct: 42.9
+  control_pct: 33.2
+  delta_pp: 9.7
+- feature: hosted-docs
+  check: documentation_present
+  layer: composite
+  provider_must: Declare the site as a Documentation pointer.
+  catalog_pass_rate: 0.453
+  facet: developer_ergonomics
+  points: 4
+  baseline_pass_rate: 0.95
+  saturated: true
+  saturated_note: >-
+    95% of providers with a contract, docs and a reference already earn this; the vendor cannot move it
+    for most of its buyers.
+  cohort_pct: 100.0
+  control_pct: 95.0
+  delta_pp: 5.0
+- feature: hosted-docs
+  check: api_reference_present
+  layer: composite
+  provider_must: Declare the reference as an APIReference pointer.
+  catalog_pass_rate: 0.222
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.942
+  saturated: true
+  saturated_note: >-
+    94% of providers with a contract, docs and a reference already earn this; the vendor cannot move it
+    for most of its buyers.
+  cohort_pct: 95.2
+  control_pct: 94.1
+  delta_pp: 1.1
+- feature: llms-txt
+  check: llms_txt_published
+  layer: composite
+  provider_must: Serve the docs from its own domain.
+  note: >-
+    Generated from the provider's own docs on the provider's domain, so it reads as the provider's (rule
+    2's own-content, own-domain case).
+  catalog_pass_rate: 0.351
+  facet: discoverability
+  points: 4
+  baseline_pass_rate: 0.65
+  cohort_pct: 90.5
+  control_pct: 64.9
+  delta_pp: 25.6
+- feature: api-catalog
+  check: well_known_published
+  layer: composite
+  provider_must: >-
+    Serve the docs at the root of a host the harvest probes (docs.<domain>) and keep the site public;
+    under a basepath the catalog moves to <basepath>/.well-known/api-catalog, and an authenticated site
+    returns an empty linkset.
+  catalog_pass_rate: 0.005
+  facet: discoverability
+  points: 6
+  baseline_pass_rate: 0.018
+  cohort_pct: 9.5
+  control_pct: 1.8
+  delta_pp: 7.7
+- feature: api-catalog
+  check: well_known_catalog
+  layer: agent_readiness
+  provider_must: Declare the api-catalog URL as an APICatalog / WellKnown pointer.
+  points: 4
+  baseline_pass_rate: 0.061
+  cohort_pct: 57.1
+  control_pct: 5.9
+  delta_pp: 51.2
+- feature: custom-skills
+  check: agent_skills
+  layer: agent_readiness
+  credit: 1.0
+  provider_must: Write the skills; Fern serves only what the provider places under .well-known/agent-skills/.
+  note: >-
+    Provider-authored on the provider's domain, so first-party. Fern's own fern-docs skill teaches agents
+    to edit Fern sites and earns the provider nothing.
+  points: 5
+  baseline_pass_rate: 0.236
+  cohort_pct: 40.5
+  control_pct: 23.5
+  delta_pp: 17.0
+- feature: custom-skills
+  check: agent_skill_present
+  layer: composite
+  credit: 1.0
+  provider_must: Declare the skills index as an AgentSkill pointer.
+  note: Same artifact as agent_skills.
+  catalog_pass_rate: 0.033
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.236
+  cohort_pct: 40.5
+  control_pct: 23.5
+  delta_pp: 17.0
+- feature: docs-mcp
+  check: mcp_server
+  layer: agent_readiness
+  grade: platform
+  note: >-
+    One Fern-hosted Ask-Fern template answering docs questions (2 AI credits per call); 0.22.0 grades
+    that `platform` (0.25 of 12).
+  points: 12
+  baseline_pass_rate: 0.22
+  cohort_pct: 54.3
+  control_pct: 21.8
+  delta_pp: 32.5
+- feature: changelog
+  check: change_log_present
+  layer: composite
+  provider_must: Keep the changelog folder current and declare it as a ChangeLog pointer.
+  catalog_pass_rate: 0.157
+  facet: operational_transparency
+  points: 6
+  baseline_pass_rate: 0.438
+  cohort_pct: 52.4
+  control_pct: 43.8
+  delta_pp: 8.6
+- feature: served-openapi
+  check: contract_present
+  layer: composite
+  conditional: true
+  condition: >-
+    Only when the provider's source is a Fern definition, gRPC or OpenRPC and the served /openapi.json
+    becomes its first published OpenAPI.
+  creates_artifact: true
+  note: For a provider that already publishes OpenAPI, the served copy is a duplicate and adds nothing.
+  catalog_pass_rate: 0.31
+  facet: contract_quality
+  points: 20
+  baseline_pass_rate: 0.949
+  saturated: true
+  saturated_note: >-
+    95% of providers with a contract, docs and a reference already earn this; the vendor cannot move it
+    for most of its buyers.
+  cohort_pct: 96.4
+  control_pct: 94.8
+  delta_pp: 1.6
+- feature: served-openapi
+  check: spec_presence
+  layer: agent_readiness
+  conditional: true
+  condition: Same as contract_present — only when the served spec is the provider's first OpenAPI.
+  points: 18
+  baseline_pass_rate: 1.0
+  saturated: true
+  saturated_note: >-
+    100% of providers with a contract, docs and a reference already earn this; the vendor cannot move
+    it for most of its buyers.
+  cohort_pct: 100.0
+  control_pct: 100.0
+  delta_pp: 0.0
+- feature: served-openapi
+  check: openapi_3_1
+  layer: composite
+  conditional: true
+  condition: >-
+    Only when the served 3.1 document is the provider's published contract; version checks read the provider's
+    original, so a 3.0 source re-served as 3.1 does not count.
+  catalog_pass_rate: 0.414
+  facet: contract_quality
+  points: 5
+  baseline_pass_rate: 0.411
+  cohort_pct: 91.7
+  control_pct: 40.8
+  delta_pp: 50.9
+- feature: sdk-idempotency
+  check: idempotency
+  layer: agent_readiness
+  conditional: true
+  condition: >-
+    Only if the API already honours an idempotency key and the definition declares it; the SDK header
+    cannot create server-side de-duplication.
+  grade: documented
+  points: 9
+  baseline_pass_rate: 0.115
+  cohort_pct: 15.0
+  control_pct: 11.4
+  delta_pp: 3.6
+earns_nothing:
+- feature: postman-generator
+  check: postman_present
+  why: >-
+    Fern's Postman generator is deprecated; a collection now comes from the provider importing its own
+    OpenAPI into Postman.
+- feature: docs-mcp
+  check: well_known_published
+  why: >-
+    The MCP server is advertised by page actions, not by any of the four well-known documents; only the
+    api-catalog row earns this check.
+out_of_reach:
+  checks:
+  - agent_card
+  - rules_present
+  - info_complete
+  - operations_description_coverage
+  - error_semantics
+  - status_page_present
+  note: >-
+    Fern serves no A2A agent card and ships no governance ruleset; it cannot write the prose (info contact,
+    operation descriptions) or the error model a contract is missing.
+unscored_practice:
+- feature: markdown-access
+  why: >-
+    Markdown twins and agent directives prepended to pages; no check reads agent-facing directives or
+    markdown negotiation.
+- feature: served-openapi
+  why: >-
+    A served AsyncAPI 2.6 and a contract linked from llms.txt are real agent-discovery practice the rubric
+    scores only as a contract, not as its discoverability.
+- feature: sdk-idempotency
+  why: Webhook signature verification in generated SDKs is agent-safety practice no check reads.
+surface:
+  discoverability:
+    reachable: 10.0
+    total: 54
+  contract_quality:
+    reachable: 29.0
+    total: 211
+  operational_transparency:
+    reachable: 6.0
+    total: 38
+  developer_ergonomics:
+    reachable: 23.0
+    total: 42
+  agent_readiness:
+    reachable: 41.5
+    total: 139
+hard_rule: >-
+  A model, not a score. Adopting this vendor changes a provider's Kin Score only when the provider publishes
+  the resulting artifacts on its own surface; nothing here writes a score, and no sponsorship or partnership
+  can.
+method: searched
+source:
+- https://buildwithfern.com/learn/cli-generator/get-started/overview
+- https://buildwithfern.com/learn/docs/ai-features/ai-examples
+- https://buildwithfern.com/learn/docs/ai-features/api-catalog
+- https://buildwithfern.com/learn/docs/ai-features/host-skills
+- https://buildwithfern.com/learn/docs/ai-features/llms-txt
+- https://buildwithfern.com/learn/docs/ai-features/mcp-server
+- https://buildwithfern.com/learn/docs/api-references/api-explorer
+- https://buildwithfern.com/learn/docs/configuration/changelogs
+- https://buildwithfern.com/learn/docs/developer-tools/openapi-spec
+- https://buildwithfern.com/learn/docs/getting-started/capabilities
+- https://buildwithfern.com/learn/docs/integrations/postman
+- https://buildwithfern.com/learn/docs/llms.txt
+- https://buildwithfern.com/learn/llms.txt
+- https://buildwithfern.com/learn/sdks/overview/capabilities
+measured:
+  cohort:
+    method: vendors-catalog.json detections (CNAME / header / URL shape / markup), never a name match
+    detected: 29
+    in_baseline: 21
+  control:
+    basis: providers earning contract_present + documentation_present + api_reference_present, minus the
+      cohort
+    n: 5195
+  metric: >-
+    cohort_pct / control_pct = mean share of the check's points earned (derived and platform credit weighted),
+    x100
+  measured_on: '2026-09-25'
+  composite_mean:
+    cohort: 54.1
+    control: 48.0
+  agent_readiness_mean:
+    cohort: 40.1
+    control: 32.5
+  status: measured
+  caveat: >-
+    A cohort delta is association, not cause: customers choose a vendor for reasons that also move their
+    score. Read it beside the capability map, never instead of it.
+simulation:
+  simulated_on: '2026-09-25'
+  rubric: 0.23.0
+  population: providers publishing a contract (contract_present earned), replayable exactly
+  providers: 8977
+  providers_unreplayable: 987
+  providers_moved: 8977
+  conditional_rows: excluded (they depend on what the API already does)
+  composite_lift:
+    median: 11.1
+    p75: 12.9
+    p90: 13.7
+    max: 16.2
+    mean_among_movers: 10.5
+  agent_readiness_lift:
+    median: 11.5
+    p75: 13.6
+    p90: 13.7
+    max: 15.9
+    mean_among_movers: 11.0
+  facet_lift_median_among_movers:
+    discoverability: 11.1
+    contract_quality: 2.7
+    operational_transparency: 15.8
+    developer_ergonomics: 38.1
+  composite_band_moves:
+    thin -> developing: 2977
+    developing -> strong: 2444
+    strong -> exemplar: 756
+    emerging -> thin: 367
+    emerging -> developing: 58
+    developing -> exemplar: 10
+    minimal -> emerging: 3
+    thin -> strong: 2
+  agent_readiness_band_moves:
+    agent-aware -> agent-ready: 4871
+    agent-ready -> agent-native: 306
+    agent-aware -> agent-native: 53
+  method: >-
+    each provider's own kin/checks file, the vendor's maps at their stated credit, the scorer's composite
+    formula; from -> to, nothing written

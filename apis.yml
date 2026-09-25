@@ -169,6 +169,8 @@ apis:
   - type: OpenCollection
     url: collections/fern-api.opencollection.json
 common:
+- type: VendorFacets
+  url: vendor-facets/fern-api-vendor-facets.yml
 - type: AgenticAccess
   url: agentic-access/fern-api-agentic-access.yml
 - type: Authentication
