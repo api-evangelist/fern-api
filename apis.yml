@@ -17,17 +17,22 @@ description: >-
   open-core: the CLI and generators are open source, and Docs and SDKs are sold
   on Hobby (free), Team, and Enterprise plans.
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: open-core
+  license: Apache-2.0
+  license_evidence:
+    repo: fern-api/fern
+    spdx: Apache-2.0
+    stars: 3785
+  open_source: true
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: medium
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -51,7 +56,7 @@ tags:
 - Developer Tools
 - OpenAPI
 - CLI
-- Open-Source
+- Open Source
 - Developer Experience
 tags_raw:
 - API Lifecycle
@@ -63,11 +68,13 @@ tags_raw:
 - CLI
 - Open Source
 - Developer Experience
+- Open-Source
 created: '2026-07-11'
 modified: '2026-07-11'
 specificationVersion: '0.23'
 apis:
 - aid: fern-api:fern-api-sdk-generation
+  x-published: false
   name: Fern SDK Generation
   tags:
   - SDK Generation
@@ -89,6 +96,7 @@ apis:
     Definition input. Driven by `fern generate`; SDKs are published to GitHub and registries (npm, PyPI,
     Maven). Endpoints are modeled from the CLI surface rather than a public REST API.
 - aid: fern-api:fern-api-documentation
+  x-published: false
   name: Fern API Documentation
   tags:
   - API Documentation
@@ -110,6 +118,7 @@ apis:
     authoring. Driven by `fern generate --docs` and `fern docs dev`. Endpoints are modeled from the CLI
     and platform surface rather than a public REST API.
 - aid: fern-api:fern-api-definition-cli
+  x-published: false
   name: Fern Definition and CLI
   tags:
   - CLI
@@ -183,6 +192,12 @@ common:
   url: https://buildwithfern.com
 - type: Documentation
   url: https://buildwithfern.com/learn/home
+- type: Portal
+  url: https://buildwithfern.com/learn/home
+  name: Fern Developer Portal
+- type: SignUp
+  url: https://dashboard.buildwithfern.com/sign-up
+  name: Fern Dashboard Sign Up
 - type: Plans
   url: plans/fern-api-plans-pricing.yml
 - type: RateLimits
