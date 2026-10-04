@@ -58,6 +58,7 @@ tags:
 - CLI
 - Open Source
 - Developer Experience
+- Documentation
 tags_raw:
 - API Lifecycle
 - SDK Generation
@@ -69,6 +70,7 @@ tags_raw:
 - Open Source
 - Developer Experience
 - Open-Source
+- Documentation
 created: '2026-07-11'
 modified: '2026-07-11'
 specificationVersion: '0.23'
