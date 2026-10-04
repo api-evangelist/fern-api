@@ -180,6 +180,8 @@ apis:
   - type: OpenCollection
     url: collections/fern-api.opencollection.json
 common:
+- type: DomainSecurity
+  url: security/fern-api-domain-security.yml
 - type: VendorFacets
   url: vendor-facets/fern-api-vendor-facets.yml
 - type: AgenticAccess
@@ -208,6 +210,8 @@ common:
   url: finops/fern-api-finops.yml
 - url: https://buildwithfern.com/blog
   type: Blog
+- type: MCP
+  url: https://buildwithfern.com/learn/_mcp/server
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
