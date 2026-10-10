@@ -1,0 +1,27 @@
+generated: '2026-10-10'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/fern-api-ask-api-openapi.yml
+- openapi/fern-api-website-sources-api-openapi.yml
+vocabulary:
+  name: Fern Domain Vocabulary
+  description: 'Terms declared by Fern''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions. Derived,
+    not authored.'
+  version: '2026-10-10'
+  terms:
+  - term: Ask
+    definition: Query indexed documentation for AI-generated, grounded answers.
+    tags:
+    - Resource Group
+    source: openapi/fern-api-ask-api-openapi.yml
+  - term: Website Sources
+    definition: Index documentation websites and check indexing job status.
+    tags:
+    - Resource Group
+    source: openapi/fern-api-website-sources-api-openapi.yml
+  - term: WebsiteStatus
+    definition: 'Object declared by the contract with fields: job_id, status, base_url, pages_indexed, pages_failed, error.'
+    tags:
+    - Object
+    source: openapi/fern-api-website-sources-api-openapi.yml#/components/schemas/WebsiteStatus

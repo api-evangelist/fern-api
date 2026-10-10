@@ -1,0 +1,42 @@
+{
+  "@context": {
+    "@vocab": "https://buildwithfern.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "fern": "https://buildwithfern.com/schema#",
+    "WebsiteStatus": "fern:WebsiteStatus",
+    "job_id": {
+      "@id": "fern:job_id",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "fern:status",
+      "@type": "xsd:string"
+    },
+    "base_url": {
+      "@id": "fern:base_url",
+      "@type": "xsd:string"
+    },
+    "pages_indexed": {
+      "@id": "fern:pages_indexed",
+      "@type": "xsd:integer"
+    },
+    "pages_failed": {
+      "@id": "fern:pages_failed",
+      "@type": "xsd:integer"
+    },
+    "error": {
+      "@id": "fern:error",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Fern API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Fern's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-05) from openapi/fern-api-ask-api-openapi.yml, openapi/fern-api-website-sources-api-openapi.yml.",
+  "dcterms:created": "2026-10-05",
+  "dcterms:source": [
+    "openapi/fern-api-ask-api-openapi.yml",
+    "openapi/fern-api-website-sources-api-openapi.yml"
+  ]
+}

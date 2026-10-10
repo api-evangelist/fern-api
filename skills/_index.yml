@@ -1,0 +1,11 @@
+generated: '2026-10-04'
+method: generated
+generator: extract-docs-artifacts.py skills (local)
+source: openapi/fern-api-website-sources-api-openapi.yml
+skills:
+- file: skills/fern-api-index-website.md
+  name: fern-api-index-website
+  api: openapi/fern-api-website-sources-api-openapi.yml
+  operations:
+  - indexWebsite
+  - getWebsiteStatus

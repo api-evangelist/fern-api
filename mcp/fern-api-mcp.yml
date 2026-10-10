@@ -1,0 +1,9 @@
+generated: '2026-10-10'
+method: probed
+source: https://buildwithfern.com/learn/_mcp/server
+
+deployment:
+  mode: remote
+  endpoint: https://buildwithfern.com/learn/_mcp/server
+  auth: none
+  verified: probed

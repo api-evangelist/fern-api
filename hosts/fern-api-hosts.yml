@@ -1,0 +1,128 @@
+generated: '2026-10-10'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 8
+  own: 6
+  other_domain: 0
+  platform: 2
+  roles:
+  - api
+  - docs
+  - identity
+  - other
+  - source
+  - status
+  - website
+hosts:
+- host: api.buildwithfern.com
+  found_by:
+  - contract-discovery
+  types: []
+  serves: []
+  registrable_domain: buildwithfern.com
+  role: api
+  relation: own
+- host: buildwithfern.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - docs-index
+  - spec-found
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - TrustCenter
+  - Support
+  - SDKs
+  - Pricing
+  - APIReference
+  - Website
+  - Documentation
+  - Portal
+  - Blog
+  - MCP
+  serves:
+  - docs
+  - spec
+  - cdn
+  - hosting
+  vendor: cloudfront
+  registrable_domain: buildwithfern.com
+  role: website
+  relation: own
+- host: dashboard.buildwithfern.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types:
+  - SignUp
+  serves: []
+  registrable_domain: buildwithfern.com
+  role: identity
+  relation: own
+- host: docs.buildwithfern.com
+  found_by:
+  - probed
+  - site-links
+  - namespace-probe
+  - well-known
+  types: []
+  serves: []
+  title: Build with Fern | Fern Documentation
+  status: 200
+  registrable_domain: buildwithfern.com
+  role: docs
+  relation: own
+- host: fai.buildwithfern.com
+  found_by:
+  - apis[]
+  - probed
+  - contract-discovery
+  - well-known
+  types: []
+  serves:
+  - api
+  registrable_domain: buildwithfern.com
+  role: other
+  relation: own
+- host: github.com
+  found_by:
+  - pointer
+  types:
+  - GitHubOrganization
+  serves: []
+  registrable_domain: github.com
+  role: source
+  relation: platform
+- host: status.buildwithfern.com
+  found_by:
+  - pointer
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - StatusPage
+  serves:
+  - status-page
+  vendor: incident-io
+  registrable_domain: buildwithfern.com
+  role: status
+  relation: own
+- host: www.linkedin.com
+  found_by:
+  - pointer
+  types:
+  - LinkedIn
+  serves: []
+  registrable_domain: linkedin.com
+  role: other
+  relation: platform

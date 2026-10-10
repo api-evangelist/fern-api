@@ -1,0 +1,72 @@
+generated: '2026-10-05'
+method: searched
+source: https://buildwithfern.com/learn/sdks/overview/introduction.md
+packages:
+- name: fern-typescript
+  registry: npm
+  url: https://www.npmjs.com/package/fern-typescript
+  language: TypeScript
+  official: false
+  version: null
+  note: Package exists on npm (fern-typescript) but version not determinable from registry metadata
+  ownership_audit: 'registry metadata names neither the provider''s domain nor its GitHub org: official downgraded (harvest-packages.py --audit)'
+- name: fern-python
+  registry: pypi
+  url: https://pypi.org/project/fern-python/
+  language: Python
+  official: false
+  version: null
+  note: Package not found on PyPI
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: fern-go
+  registry: go
+  url: https://pkg.go.dev/github.com/fern-api/fern-go
+  language: Go
+  official: true
+  version: null
+  note: Go module not found via proxy.golang.org
+- name: fern-java
+  registry: maven
+  url: https://search.maven.org/search?q=g:com.fern
+  language: Java
+  official: true
+  version: null
+  note: Maven artifact not located
+- name: fern-dotnet
+  registry: nuget
+  url: https://www.nuget.org/packages/fern-dotnet/
+  language: .NET
+  official: false
+  version: null
+  note: NuGet package not found
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: fern-php
+  registry: packagist
+  url: https://packagist.org/packages/fern/fern-php
+  language: PHP
+  official: false
+  version: null
+  note: Packagist entry not found
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: fern-ruby
+  registry: rubygems
+  url: https://rubygems.org/gems/fern-ruby
+  language: Ruby
+  official: false
+  version: null
+  note: RubyGems entry not found
+  ownership_audit: 'registry has no such package: official downgraded (harvest-packages.py --audit)'
+- name: fern-swift
+  registry: swift
+  url: https://github.com/fern-api/fern-swift
+  language: Swift
+  official: true
+  version: null
+  note: Swift package not published to a registry
+- name: fern-rust
+  registry: crates.io
+  url: https://crates.io/crates/fern-rust
+  language: Rust
+  official: true
+  version: null
+  note: Crates.io entry not found
