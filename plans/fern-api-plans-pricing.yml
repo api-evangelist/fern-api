@@ -8,6 +8,7 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
 provider: Fern
 providerId: fern-api
+name: Fern API Plans
 created: '2026-07-11'
 modified: '2026-07-11'
 reconciled: false

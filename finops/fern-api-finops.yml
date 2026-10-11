@@ -8,6 +8,7 @@ specificationVersion: '1.0'
 schema: https://www.finops.org/framework/
 provider: Fern
 providerId: fern-api
+name: Fern API FinOps
 created: '2026-07-11'
 modified: '2026-07-11'
 reconciled: false
