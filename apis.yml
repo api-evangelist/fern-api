@@ -155,6 +155,8 @@ common:
   url: finops/fern-api-finops.yml
 - url: https://buildwithfern.com/blog
   type: Blog
+- url: https://buildwithfern.com/feed.xml
+  type: BlogRSS
 - type: MCP
   url: https://buildwithfern.com/learn/_mcp/server
 
