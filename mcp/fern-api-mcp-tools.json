@@ -1,0 +1,70 @@
+{
+  "endpoint": "https://buildwithfern.com/learn/_mcp/server",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "fern-docs-mcp-server",
+    "version": "1.0.0"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "searchDocs",
+        "description": "Search the documentation at https://buildwithfern.com/learn. Returns ranked results with title, url, section anchor and a snippet, in rank order. Use fetchPage to read a result in full.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "The search query to run against the docs"
+            },
+            "topK": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20,
+              "description": "How many results to return (default 8, max 20)"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "annotations": {
+          "title": "Search buildwithfern.com Docs",
+          "readOnlyHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "fetchPage",
+        "description": "Read one page of the documentation at https://buildwithfern.com/learn as markdown. Takes a path or url from a searchDocs result.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Path or absolute url of the page to read, as returned in a searchDocs result's `url`"
+            }
+          },
+          "required": [
+            "path"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "annotations": {
+          "title": "Fetch a buildwithfern.com Docs page",
+          "readOnlyHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      }
+    ]
+  }
+}
