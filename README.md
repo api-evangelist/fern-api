@@ -1,4 +1,4 @@
-# Fern (fern-api)
+# Fern
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,123 +64,155 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Fern is a developer-tools platform that turns a single API specification into idiomatic client SDKs, beautiful API documentation, and MCP servers. Given OpenAPI, AsyncAPI, gRPC/Protobuf, or Fern's own Fern Definition as input, Fern generates type-safe SDKs in TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift, and Rust, publishes them to registries like npm, PyPI, and Maven, and builds a hosted docs site with an interactive API reference, an API playground, and AI-powered "Ask Fern" search.
+Fern is a developer-tools platform that turns a single API specification into idiomatic client SDKs, beautiful API documentation, and MCP servers. Given OpenAPI, AsyncAPI, gRPC/Protobuf, or Fern's own Fern Definition as input, Fern generates type-safe SDKs in TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift, and Rust, publishes them to registries like npm, PyPI, and Maven, and builds a hosted docs site with an interactive API reference, API playground, and an AI-powered "Ask Fern" search. The primary interface is the open-source `fern` CLI (Apache-2.0, github.com/fern-api/fern) driving a hosted platform - the fern-api catalog documents Fern's SDK-generation, documentation-generation, and Fern Definition capability surfaces as capability areas, plus the one hosted public REST API Fern exposes to customers, the Ask Fern API. Fern is open-core: the CLI and generators are open source, and Docs and SDKs are sold on Hobby (free), Team, and Enterprise plans.
 
-**Access model — read this first.** Fern is primarily a **CLI + platform**, not a traditional hosted REST API. The `fern` CLI is open source (Apache-2.0, [github.com/fern-api/fern](https://github.com/fern-api/fern)) and drives a hosted dashboard for publishing. Fern exposes **one documented hosted public REST API** to customers: the **Ask Fern API** (`https://fai.buildwithfern.com`), used to index a documentation website, poll indexing status, and query indexed content for AI-grounded answers. It is authenticated with a Bearer token from `fern token` and is available on the Team and Enterprise plans. Everything else — SDK generation, docs generation, the Fern Definition format — is a **capability area** driven through the CLI/platform and is documented here with `endpointsModeled` rather than as a live REST surface. Fern is **open-core**: the CLI and generators are free and open source; hosted Docs and SDKs are sold on Hobby (free), Team, and Enterprise plans.
+**Areas:** API Lifecycle · SDK Generation · Client Library · API Documentation · Developer Tools · OpenAPI · CLI · Open Source · Developer Experience · Documentation
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fern-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fern-api/refs/heads/main/apis.yml)
+## Fern on APIs.io
 
-## Tags
+Everything profiled for Fern is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fern-api/](https://apis.io/providers/fern-api/)** — or go straight to one of the APIs or properties below.
 
-- API Lifecycle
-- SDK Generation
-- Client Library
-- API Documentation
-- Developer Tools
-- OpenAPI
-- CLI
-- Open Source
-- Developer Experience
+### APIs (5)
 
-## Timestamps
+- [Fern SDK Generation](https://apis.io/apis/fern-api/fern-api-sdk-generation/) — Capability area (CLI/platform, not a hosted REST API) that generates idiomatic, type-safe client SDKs in TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift,…
+- [Fern API Documentation](https://apis.io/apis/fern-api/fern-api-documentation/) — Capability area (CLI/platform) that builds a hosted documentation website with a generated API reference, interactive API playground, changelogs,…
+- [Fern Definition and CLI](https://apis.io/apis/fern-api/fern-api-definition-cli/) — Capability area covering Fern's open-source (Apache-2.0) command-line interface and the proprietary Fern Definition API-description format. Core commands…
+- [Fern Ask API](https://apis.io/apis/fern-api/fern-api-ask-api/) — Query indexed documentation for AI-generated, grounded answers.
+- [Fern Website Sources API](https://apis.io/apis/fern-api/fern-api-website-sources-api/) — Index documentation websites and check indexing job status.
 
-- **Created:** 2026-07-11
-- **Modified:** 2026-07-11
+### Published properties
 
-## APIs (capability areas)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Fern SDK Generation
+#### MCP servers (1)
 
-Capability area (CLI/platform, not a hosted REST API) that generates idiomatic, type-safe client SDKs in TypeScript, Python, Go, Java, C#, PHP, Ruby, Swift, and Rust from OpenAPI, AsyncAPI, gRPC, or Fern Definition input. Driven by `fern generate`; SDKs publish to GitHub and registries (npm, PyPI, Maven). Endpoints are modeled from the CLI surface.
+Model Context Protocol servers that expose the API to agents.
 
-- **Human URL:** [https://buildwithfern.com/learn/sdks/overview](https://buildwithfern.com/learn/sdks/overview)
+- [Moved to /providers/fern-api/](https://apis.io/servers/fern-api/fern-api/)
 
-#### Tags
+#### Agentic access (1)
 
-- SDK Generation
-- Client Library
-- Developer Tools
-- API Lifecycle
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Properties
+- [Fern Api Agentic Access](https://apis.io/agentic-access/fern-api/fern-api-agentic-access/)
 
-- [Documentation](https://buildwithfern.com/learn/sdks/overview)
-- [API Reference](https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands)
-- [Source Code](https://github.com/fern-api/fern)
+#### JSON Schema (1)
 
-### Fern API Documentation
+The data models the API reads and writes.
 
-Capability area (CLI/platform) that builds a hosted documentation website with a generated API reference, interactive API playground, changelogs, versioning, keyword search, and docs-as-code (Markdown + git) authoring. Driven by `fern generate --docs` and `fern docs dev`. Endpoints are modeled from the CLI and platform surface.
+- [WebsiteStatus](https://apis.io/schemas/fern-api/fern-api-website-status/)
 
-- **Human URL:** [https://buildwithfern.com/learn/docs/getting-started/overview](https://buildwithfern.com/learn/docs/getting-started/overview)
+#### JSON-LD (1)
 
-#### Tags
+Linked-data contexts for the provider's vocabulary.
 
-- API Documentation
-- Developer Portal
-- Docs as Code
-- Developer Experience
+- [Fern Api Context](https://apis.io/jsonld/fern-api/fern-api-context/)
 
-#### Properties
+#### Collections (3)
 
-- [Documentation](https://buildwithfern.com/learn/docs/getting-started/overview)
-- [API Reference](https://buildwithfern.com/learn/docs/api-references/generate-api-ref)
-- [Source Code](https://github.com/fern-api/fern)
+Postman and Open Collection request collections.
 
-### Fern Definition and CLI
+- [Fern Ask Fern API](https://apis.io/collections/fern-api/open-fern-api/)
+- [Fern Fern Ask API](https://apis.io/collections/fern-api/open-fern-api-ask-api/)
+- [Fern Fern Ask Website Sources API](https://apis.io/collections/fern-api/open-fern-api-website-sources-api/)
 
-Capability area covering Fern's open-source (Apache-2.0) command-line interface and the proprietary Fern Definition API-description format. Core commands include `fern init`, `fern check`, `fern generate`, `fern login`, `fern token`, `fern export`, and `fern docs dev`. Endpoints are modeled from the CLI surface.
+#### Governance rules (1)
 
-- **Human URL:** [https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands](https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands)
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [Fern API Rules](https://apis.io/rules/fern-api/fern-api-rules/)
 
-- CLI
-- API Design
-- API Lifecycle
-- Developer Tools
+#### Security (2)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://buildwithfern.com/learn/cli-api-reference/cli-reference/commands)
-- [API Reference](https://buildwithfern.com/learn/api-definitions/openapi/authentication)
-- [Source Code](https://github.com/fern-api/fern)
+- [Fern Api Authentication](https://apis.io/security/fern-api/fern-api-authentication/)
+- [Fern Api Domain Security](https://apis.io/security/fern-api/fern-api-domain-security/)
 
-### Ask Fern API
+#### Plans and pricing (1)
 
-Fern's hosted public REST API for the AI-powered "Ask Fern" documentation search. Index a documentation website, poll indexing job status, and query the indexed content for grounded answers to build your own support integrations. Authenticated with a Bearer token from `fern token`; available on Team and Enterprise plans. The website index/status endpoints are grounded in the published reference; the `/ask` query shape is modeled.
+Published plans, tiers and prices.
 
-- **Human URL:** [https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview](https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview)
-- **Base URL:** `https://fai.buildwithfern.com`
+- [Fern Api Plans Pricing](https://apis.io/plans/fern-api/fern-api-plans-pricing/)
 
-#### Tags
+#### Rate limits (1)
 
-- AI
-- Search
-- REST API
-- Developer Tools
+Published request limits.
 
-#### Properties
+- [Fern Api Rate Limits](https://apis.io/rate-limits/fern-api/fern-api-rate-limits/)
 
-- [Documentation](https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/overview)
-- [API Reference](https://buildwithfern.com/learn/docs/ai-features/ask-fern/api-reference/website/get-website-status)
-- [OpenAPI](openapi/fern-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fern-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fern-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### FinOps (1)
 
-## Common Properties
+What the API costs to run, by operation.
 
-- [Authentication](authentication/fern-api-authentication.yml)
-- [GitHub Organization](https://github.com/fern-api)
-- [LinkedIn](https://www.linkedin.com/company/buildwithfern)
+- [Fern Api Finops](https://apis.io/finops/fern-api/fern-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://buildwithfern.com)
 - [Documentation](https://buildwithfern.com/learn/home)
-- [Plans](plans/fern-api-plans-pricing.yml)
-- [Rate Limits](rate-limits/fern-api-rate-limits.yml)
-- [Fin Ops](finops/fern-api-finops.yml)
+- [API reference](https://buildwithfern.com/docs)
+- [Pricing](https://buildwithfern.com/pricing)
+- [Sign up](https://dashboard.buildwithfern.com/sign-up)
+- [Support](https://buildwithfern.com/support)
 - [Blog](https://buildwithfern.com/blog)
+- [Trust centre](https://buildwithfern.com/trust)
+- [GitHub](https://github.com/fern-api)
+- [Status](https://status.buildwithfern.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 34.2** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.0 |
+| Contract quality | 7.1 |
+| Contract governance | 35.6 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 55.4 |
+| Access clarity | 39.5 |
+
+**Agent readiness 36.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 21.6** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fern-api/](https://apis.io/providers/fern-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Fern: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fern-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
